@@ -1,4 +1,5 @@
-. base.sh
+script_dir="/home/hik/script"
+. ${script_dir}/base.sh
 complete -F _myobj_complete_func hikrun
 _myobj_complete_func() {
     local cur prev tmp_opt

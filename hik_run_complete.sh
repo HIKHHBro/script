@@ -55,18 +55,15 @@ _hikrun() {
         return 0
         ;;
       --code)
-        local curd=`pwd`
-        cd ${HIK_SCRIPT_TOP_DIR}/script/
-        tmp_opt="`ls`"
+        tmp_opt="`ls ${HIK_SCRIPT_TOP_DIR}/script/`"
         COMPREPLY=( $(compgen -W "${tmp_opt}" -- ${cur}) )
         tmp_opt=""
-        cd ${curd} 
         return 0
         ;;
-      --set)
-        local curd=`pwd`
-        cd ${HIK_SCRIPT_TOP_DIR}/
-        ;;
+      # --set)
+      #   local curd=`pwd`
+      #   cd ${HIK_SCRIPT_TOP_DIR}/
+      #   ;;
       --script)
         tmp_opt="`ls ${HIK_SCRIPT_TOP_DIR}/script/` ""`ls -F | grep "*"`"
         COMPREPLY=( $(compgen -W "${tmp_opt}" -- ${cur}) )

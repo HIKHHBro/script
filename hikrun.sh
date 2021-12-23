@@ -1,8 +1,4 @@
-script_dir="/home/hik/script"
-source ${script_dir}/base.sh
-
-
-
+source ${HIK_SCRIPT_TOP_DIR}/base.sh
 usage() {
   echo -e "Usage: ./$(basename $0) [-t value] [-t value] [-h] [value]\n"
   echo "-h           help"
@@ -10,15 +6,15 @@ usage() {
 #创建脚本
 touch_script() {
   _func
-  if [ -f "${script_dir}/script/$1" ];then
+  if [ -f "${HIK_SCRIPT_TOP_DIR}/script/$1" ];then
     if [ ! -f "$1" ];then
-      _task ln -s ${script_dir}/script/$1 $1
+      _task ln -s ${HIK_SCRIPT_TOP_DIR}/script/$1 $1
     fi
   else
-    echo "#!/bin/bash" >> ${script_dir}/script/$1
-    echo ". ${script_dir}/base.sh" >> ${script_dir}/script/$1
-    chmod 755 ${script_dir}/script/$1
-    _task ln -s ${script_dir}/script/$1 $1
+    echo "#!/bin/bash" >> ${HIK_SCRIPT_TOP_DIR}/script/$1
+    echo ". ${HIK_SCRIPT_TOP_DIR}/base.sh" >> ${HIK_SCRIPT_TOP_DIR}/script/$1
+    chmod 755 ${HIK_SCRIPT_TOP_DIR}/script/$1
+    _task ln -s ${HIK_SCRIPT_TOP_DIR}/script/$1 $1
   fi
   code $1
 }
@@ -156,7 +152,7 @@ done
 
 
 #函数定义和注册
-source ${script_dir}/function.sh
+source ${HIK_SCRIPT_TOP_DIR}/function.sh
 # 函数执行
 for func in ${run_func[*]}
 do

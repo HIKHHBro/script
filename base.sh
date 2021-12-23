@@ -1,4 +1,3 @@
-script_dir="/home/hik/script"
 #所支持的工程
 project_type=()
 #机型
@@ -28,8 +27,8 @@ function _task() {
     echo -e "\033[33mRunning$FUNCNAME => ($*): \033[0m"  
     $*
 }
-if [ -f "${script_dir}/company/companybase.sh" ];then
-source ${script_dir}/company/companybase.sh
+if [ -f "${HIK_SCRIPT_TOP_DIR}/company/companybase.sh" ];then
+source ${HIK_SCRIPT_TOP_DIR}/company/companybase.sh
 else
-_task "没有companybase.sh"
+_func "没有companybase.sh"
 fi

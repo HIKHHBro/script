@@ -1,5 +1,5 @@
-if [ -f "${script_dir}/company/companyfunc.sh" ];then
-source ${script_dir}/company/companyfunc.sh
+if [ -f "${HIK_SCRIPT_TOP_DIR}/company/companyfunc.sh" ];then
+source ${HIK_SCRIPT_TOP_DIR}/company/companyfunc.sh
 else
 _task "没有companyfunc.sh"
 fi

@@ -6,17 +6,16 @@ usage() {
 #创建脚本
 touch_script() {
   _func
-  if [ -f "${HIK_SCRIPT_TOP_DIR}/script/$1" ];then
-    if [ ! -f "$1" ];then
-      _task ln -s ${HIK_SCRIPT_TOP_DIR}/script/$1 $1
-    fi
-  else
+  if [ -f "${HIK_SCRIPT_TOP_DIR}/$1" ];then
+      code ${HIK_SCRIPT_TOP_DIR}/$1
+      exit 0
+  fi
+  if [ ! -f "${HIK_SCRIPT_TOP_DIR}/script/$1" ];then
     echo "#!/bin/bash" >> ${HIK_SCRIPT_TOP_DIR}/script/$1
     echo ". ${HIK_SCRIPT_TOP_DIR}/base.sh" >> ${HIK_SCRIPT_TOP_DIR}/script/$1
     chmod 755 ${HIK_SCRIPT_TOP_DIR}/script/$1
-    _task ln -s ${HIK_SCRIPT_TOP_DIR}/script/$1 $1
   fi
-  code $1
+  code ${HIK_SCRIPT_TOP_DIR}/script/$1
 }
 
 # 输入

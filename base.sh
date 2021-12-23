@@ -29,6 +29,4 @@ function _task() {
 }
 if [ -f "${HIK_SCRIPT_TOP_DIR}/company/companybase.sh" ];then
 source ${HIK_SCRIPT_TOP_DIR}/company/companybase.sh
-else
-_func "没有companybase.sh"
 fi

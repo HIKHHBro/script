@@ -28,12 +28,19 @@ _myobj_complete_func() {
         tmp_opt=""
         ;;
       --code)
-        tmp_opt="`cd ${HIK_SCRIPT_TOP_DIR}/script/ && ls`"
+      # echo  "${HIK_SCRIPT_TOP_DIR}/script/"
+        local curd=`pwd`
+        cd ${HIK_SCRIPT_TOP_DIR}/script/
+        tmp_opt="`ls`"
         COMPREPLY=( $(compgen -W "${tmp_opt}" -- ${cur}) )
         tmp_opt=""
+        cd ${curd} 
         ;;
       --script)
-        tmp_opt="`ls *.sh`"
+        local curd=`pwd`
+        cd ${HIK_SCRIPT_TOP_DIR}/script/
+        tmp_opt="`ls`"
+        cd ${curd} 
         COMPREPLY=( $(compgen -W "${tmp_opt}" -- ${cur}) )
         tmp_opt=""
         ;;
